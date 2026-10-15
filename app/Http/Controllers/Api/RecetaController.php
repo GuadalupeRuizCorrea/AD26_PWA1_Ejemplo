@@ -7,15 +7,16 @@ use Illuminate\Http\Request;
 
 use App\Models\Receta;
 
+
 class RecetaController extends Controller
 {
         public function index()
     {
-        return Receta::all();
+        return Receta::whith('categoria','etiquetas','user')->get();
     }
 
 public function show(Receta $receta)
 {
-    return $receta;
+    return $receta->load('categoria','etiquetas','user');
 }
 }
