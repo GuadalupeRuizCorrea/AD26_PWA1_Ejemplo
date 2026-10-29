@@ -7,14 +7,10 @@ use App\Http\Controllers\Api\CategoriaController;
 use App\Http\Controllers\Api\RecetaController;
 use App\Http\Controllers\Api\EtiquetaController;
 
-Route::get('categorias',[categoriaController::class,'index']);
-Route::get('categorias/{categoria}',[categoriaController::class,'show']);
 
-Route::get('recetas',[recetaController::class,'index']);
-Route::get('recetas/{receta}',[recetaController::class,'show']);
-
-Route::get('etiquetas',[etiquetaController::class,'index']);
-Route::get('etiquetas/{etiqueta}',[etiquetaController::class,'show']);
+Route::apiResource('categorias', categoriaController::class); 
+Route::apiResource('recetas', recetaController::class);
+Route::apiResource('etiquetas', etiquetaController::class);
 
 //Route::get('/user', function (Request $request) {
 //return $request->user();
